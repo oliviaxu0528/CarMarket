@@ -12,7 +12,7 @@ class AutomobileVOEncoder(ModelEncoder):
         "id",
         "vin",
         "year",
-        "color"
+        "color",
     ]
 
 
@@ -105,7 +105,6 @@ def api_show_technician(request, pk):
 
     else:
         content = json.loads(request.body)
-        print("technician:", content)
         try:
             content = json.loads(request.body)
             technician = Technician.objects.get(id=pk)
@@ -136,9 +135,8 @@ def api_list_appointments(request):
             encoder=AppointmentEncoder,
         )
 
-    else:  # "POST"
+    else:
         content = json.loads(request.body)
-        print(":", content)
         try:
             technician = Technician.objects.get(id=content['technician_id'])
             content['technician'] = technician
@@ -159,9 +157,7 @@ def api_list_appointments(request):
 def api_show_appointment(request, pk):
     if request.method == "GET":
         try:
-            print("hey look it wooooorked")
             appointment = Appointment.objects.get(id=pk)
-            print(":", appointment)
             return JsonResponse(
                 appointment,
                 encoder=AppointmentEncoder,

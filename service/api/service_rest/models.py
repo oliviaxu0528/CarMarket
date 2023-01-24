@@ -13,7 +13,7 @@ class AutomobileVO(models.Model):
 
 
 class Technician(models.Model):
-    technician_name = models.CharField(max_length=200)
+    technician_name = models.CharField(max_length=100)
     employee_number = models.PositiveSmallIntegerField()
 
     def get_api_url(self):
@@ -24,14 +24,16 @@ class Technician(models.Model):
 
 
 class Appointment(models.Model):
-    vin = models.PositiveSmallIntegerField()
-    owner_name = models.CharField(max_length=200)
-    appointment_date = models.DateTimeField()
-    assigned_technician = models.ForeignKey(
-    Technician,
-    related_name="appointments",
-    on_delete=models.CASCADE,)
-    reason_for_visit = models.CharField(max_length=200)
+    vin = models.CharField(max_length=20)
+    customer_name = models.CharField(max_length=100, default=False)
+    date = models.DateField(max_length=20, blank=True, null=True)
+    time = models.TimeField(max_length=20, blank=True, null=True)
+    technician = models.ForeignKey(
+        Technician,
+        related_name="appointments",
+        on_delete=models.CASCADE
+    )
+    reason = models.TextField(default=False)
     vip = models.BooleanField(default=False)
     canceled = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
