@@ -2,15 +2,9 @@ import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPL0I6PEl7X_v2uCNwUgundrXBcR9eb58ofA&usqp=CAU"
-            height="30"
-            alt=""
-          />
-        </a>
+        <a className="navbar-brand" href="/"></a>
 
         <NavLink className="navbar-brand" to="/">
           CarCar
@@ -49,50 +43,39 @@ function Nav() {
                   className="dropdown-item"
                   aria-selected="true"
                   to="manufacturers/list"
-                  exact="true"
-                >
-                  List manufacturers
+                  exact="true">
+                  Manufacturers
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
                   to="manufacturers/create"
-                  exact="true"
-                >
-                  Create manufacturer
+                  exact="true">
+                  Create Manufacturer
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="vehiclemodels/list"
-                >
-                  List vehiclemodels
+                  to="vehiclemodels/list">
+                  List Vehicle Models
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="vehiclemodels/create"
-                >
-                  Create vehiclemodel
+                  to="vehiclemodels/create">
+                  Create Vehicle Model
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="automobiles/list"
-                >
-                  List automobiles
+                  to="automobiles/list">
+                  List Automobiles
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="automobiles/create"
-                >
-                  Create automobile
+                  to="automobiles/create">
+                  Create Automobile
                 </NavLink>
               </div>
             </div>
@@ -105,41 +88,32 @@ function Nav() {
                 id="navbarDropdown"
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 Services
               </a>
-
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="/technicians/create"
-                >
+                  to="/technicians/create">
                   Create Technician
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="/appointments/list"
-                >
+                  to="/appointments/list">
                   List Appointments
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="/appointments/create"
-                >
+                  to="/appointments/create">
                   Create Appointment
                 </NavLink>
-
                 <NavLink
                   className="dropdown-item"
                   aria-selected="true"
-                  to="/appointments/history"
-                >
+                  to="/appointments/history">
                   Services history
                 </NavLink>
               </div>

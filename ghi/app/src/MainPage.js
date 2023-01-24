@@ -14,8 +14,7 @@ function MainPage() {
         <div
           id="carouselExampleCaptions"
           className="carousel slide"
-          data-bs-ride="false"
-        >
+          data-bs-ride="false">
           <div className="carousel-indicators">
             <button
               type="button"
@@ -23,28 +22,33 @@ function MainPage() {
               data-bs-slide-to="0"
               className="active"
               aria-current="true"
-              aria-label="Slide 1"
-            ></button>
+              aria-label="Slide 1">
+            </button>
             <button
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
+              aria-label="Slide 2">
+            </button>
             <button
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
+              aria-label="Slide 3">
+            </button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="3"
+              aria-label="Slide 4">
+              </button>
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
                 src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
                 className="d-block w-100"
-                alt="slider1: capable"
-              />
+                alt="slider1: capable"/>
               <div className="carousel-caption d-none d-md-block bg-gray">
               </div>
             </div>
@@ -52,8 +56,7 @@ function MainPage() {
               <img
                 src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
                 className="d-block w-100"
-                alt="slider2: adaptive"
-              />
+                alt="slider2: adaptive"/>
               <div className="carousel-caption d-none d-md-block">
               </div>
             </div>
@@ -61,8 +64,15 @@ function MainPage() {
               <img
                 src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3456&q=80"
                 className="d-block w-100"
-                alt="slider3: accountable"
-              />
+                alt="slider3: accountable"/>
+              <div className="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                className="d-block w-100"
+                alt="slider4: accountable"/>
               <div className="carousel-caption d-none d-md-block">
               </div>
             </div>
@@ -71,8 +81,7 @@ function MainPage() {
             className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
+            data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Previous</span>
           </button>
@@ -80,8 +89,7 @@ function MainPage() {
             className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
+            data-bs-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Next</span>
           </button>
