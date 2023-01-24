@@ -2,8 +2,8 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Person 1 - Sean Michael McKee - Service
+* Person 2 - Olivia Xu - Sales
 
 ## Design
 
