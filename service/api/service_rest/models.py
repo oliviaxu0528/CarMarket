@@ -35,7 +35,7 @@ class Appointment(models.Model):
     )
     reason = models.TextField(default=False)
     vip = models.BooleanField(default=False)
-    canceled = models.BooleanField(default=False)
+    cancelled = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
 
     def get_api_url(self):
