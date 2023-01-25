@@ -142,7 +142,7 @@ def sales_record_list(request):
         except Customer.DoesNotExist:
             return JsonResponse({"message": "Invalid customer name"})
 
-        sales_record = Salesman.objects.create(**content)
+        sales_record = SaleRecord.objects.create(**content)
         return JsonResponse(
             sales_record,
             encoder=SaleRecordEncoder,
@@ -150,7 +150,7 @@ def sales_record_list(request):
         )
 
 
-@require_http_methods(["DELETE", "PUT"])
+@require_http_methods(["DELETE"])
 def delete_sales_record(request, pk):
     if request.method == "DELETE":
         count, _ = SaleRecord.objects.filter(id=pk).delete()
