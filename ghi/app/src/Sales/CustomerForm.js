@@ -91,6 +91,7 @@ class CustomerForm extends React.Component {
         </div>
         );
     }
+}
 
 
 

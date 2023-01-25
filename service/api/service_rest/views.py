@@ -151,6 +151,18 @@ def api_list_appointments(request):
                 {"message": "Invalid technician id"},
                 status=400,
             )
+        # auto_vin = content['vin']
+        # cars = AutomobileVO.objects.all()
+        # auto_vins = []
+        # for car in cars:
+        #     auto_vins.append(car.vin)
+        # if auto_vin in auto_vins:
+        #     content['vip_treatment'] = True
+        # appointments = Appointment.objects.create(**content)
+        # return JsonResponse(appointments,
+        # encoder=AppointmentEncoder,
+        # safe=False,
+        # )
 
 
 @require_http_methods(["GET", "PUT", "DELETE"])
