@@ -14,8 +14,8 @@ import SaleRecordForm from "./sales/SaleRecordForm";
 import CreateAutomobile from './inventory/CreateAutomobile';
 import CreateManufacturer from './inventory/CreateManufacturer';
 import CreateVehicleModel from './inventory/CreateVehicleModel';
-// import ListAutomobiles from './Inventory/ListAutomobiles';
-// import ListManufacturer from './Inventory/ListManufacturer';
+import AutomobileList from './inventory/ListAutomobiles';
+import ManufacturersList from './inventory/ListManufacturer';
 // import ManufacturerForm from './Inventory/ManufacturerForm';
 
 
@@ -25,6 +25,9 @@ function App() {
   const [salerecord,setSaleRecord] = useState([]);
   const [salesman, setSalesman] = useState([]);
   const [appointments, setAppointment] = useState([]);
+  const [automobile, setAutomobile] = useState([]);
+  const [manufacturer, setManufacturer] = useState([]);
+  // const [unsold, setUnsold] = useState([]);
 
   const getSaleRecord = async () => {
     const url = "http://localhost:8091/sales/";
@@ -59,12 +62,33 @@ function App() {
     }
   }
 
+  const getAutomobile = async () => {
+    const Url = "http://localhost:8100/api/automobiles/"
+    const response = await fetch(Url)
+    if (response.ok) {
+      const data = await response.json()
+      setAutomobile(data.autos)
+    }
+  }
+
+  const getManufacturers = async () => {
+    const Url = "	http://localhost:8100/api/manufacturers/"
+    const response = await fetch(Url)
+
+    if (response.ok) {
+      const data = await response.json()
+      setManufacturer(data.manufacturers)
+      // setUnsold(data.autos.unsold.filter(auto => auto.availability === true))
+    }
+  }
+
+
     useEffect(() => {
-      // fetchManufacturers();
+      getManufacturers();
       // fetchModels();
       // fetchCustomer();
       // fetchSales();
-      // fetchAutomobile();
+      getAutomobile();
       // fetchSalesPerson();
       // fetchTechnician();
       // fetchAppointments();
@@ -97,7 +121,7 @@ function App() {
           </Route>
           <Route path="manufacturers">
             <Route path="create" element={<CreateManufacturer />} />
-            {/* <Route path="list" element={<SaleRecordFiltered salesman={salesman} salerecord={salerecord}/>} /> */}
+            {/* <Route path="list" element={<ManufacturersList manufacturer={manufacturer}/>} /> */}
           </Route>
           <Route path="vehiclemodels">
             <Route path="create" element={<CreateVehicleModel />} />
@@ -105,7 +129,7 @@ function App() {
           </Route>
           <Route path="automobiles">
             <Route path="create" element={<CreateAutomobile />} />
-            {/* <Route path="list" element={<SaleRecordFiltered salesman={salesman} salerecord={salerecord}/>} /> */}
+            <Route path="list" element={<AutomobileList automobile={automobile}/>} />
           </Route>
         </Routes>
       </div>

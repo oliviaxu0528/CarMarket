@@ -4,6 +4,7 @@ Getting Started
 
 Git:
 To begin, go to the project in git at https://gitlab.com/sjp19-public-resources/sjp-2022-april/project-beta/-/tree/main/
+
 Fork it into a new project, ensuring to make it public.
 Add the members of your team to the project under Project Information => Members. Set each other member as a Maintainer role.
 Use git clone in the terminal to pull the initial project to your machine.
@@ -40,7 +41,7 @@ GET, POST, PUT, and/or DELETE as needed for the application.
 To access the backend portion of the application, use the following ports:
         For Inventory, http://localhost:8100/api/
         For Services, http://localhost:8080/api/
-        For Sales, http://localhost:8090/api/
+        For Sales, http://localhost:8091/api/
 
 Example:
 To create an automobile, use the POST method at the following URL:

@@ -62,11 +62,11 @@ function SaleRecordForm() {
 
 //fetch the automobile, salesman and customer
       const fetchAutomobile = async () => {
-        const url = 'http://localhost:8100/api/automobiles/';
+        const url = 'http://localhost:8091/automobilevos';
         const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
-          setAutomobiles(data.autos);
+          setAutomobiles(data.automobiles);
         }
       }
 
@@ -106,13 +106,16 @@ function SaleRecordForm() {
                         <div className="mb-3">
                             <select value={automobile} onChange={handlAutomobileChange} required id="autmobile" name="automobile" className="form-select">
                                 <option value="">Choose an Automobile</option>
-                                {automobiles.map((auto) => {
+                                {console.log(automobiles)}
+                                {automobiles.map(automobile => {
+                                    if (automobile.availability === true) {
                                         return (
-                                            <option key={auto.import_href} value={auto.import_href}>
-                                            {auto.vin}
+                                            <option key={automobile.vin} value={automobile.vin}>
+                                                {automobile.vin}
                                             </option>
-                                        );
-                                    })}
+                                        )
+                                    }
+                                })}
                             </select>
                         </div>
                         <div className="mb-3">
