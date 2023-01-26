@@ -17,112 +17,71 @@ function Nav() {
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <div className="dropdown">
-              <a
-                href="/"
-                className="nav-link dropdown-toggle"
-                to="#"
-                role="button"
-                id="navbarDropdown"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Inventory
-              </a>
-
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="manufacturers/list"
-                  exact="true">
-                  Manufacturers
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to="/">
+                  Home
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="manufacturers/create"
-                  exact="true">
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="manufacturers/list">
+                Manufacturers
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="manufacturers/create">
                   Create Manufacturer
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="vehiclemodels/list">
+                </li>
+                <li className="nav-item">
+                <NavLink className="nav-link" to="vehiclemodels/list">
                   List Vehicle Models
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="vehiclemodels/create">
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="vehiclemodels/create">
                   Create Vehicle Model
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="automobiles/list">
-                  List Automobiles
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="automobiles/list">
+                List Automobiles
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="automobiles/create">
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="automobiles/create">
                   Create Automobile
                 </NavLink>
-              </div>
-            </div>
-            <div className="dropdown">
-              <a
-                href="/"
-                className="nav-link dropdown-toggle"
-                to="#"
-                role="button"
-                id="navbarDropdown"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-                Services
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="/technicians/create">
-                  Create Technician
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="appointments/list">
+                List Appointments
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="/appointments/list">
-                  List Appointments
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="appointments/create">
+                Create Appointment
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="/appointments/create">
-                  Create Appointment
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="">
+                Service History
                 </NavLink>
-                <NavLink
-                  className="dropdown-item"
-                  aria-selected="true"
-                  to="/appointments/history">
-                  Services history
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="technicians/create">
+                Technician Form
                 </NavLink>
-              </div>
-            </div>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-  );
-}
+      </nav>
+    );
+  }
 
 export default Nav;
