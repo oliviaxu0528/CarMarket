@@ -113,7 +113,7 @@ def sales_record_list(request):
     if request.method == "GET":
         sales_records = SaleRecord.objects.all()
         return JsonResponse(
-            {"sales_records": sales_records},
+            {"salerecords": sales_records},
             encoder=SaleRecordEncoder,
             safe=False,
         )
@@ -129,16 +129,18 @@ def sales_record_list(request):
                 safe=False,
             )
         try:
-            salesman = content["sales_person"]
-            content["sales_person"] = Salesman.objects.get(name=salesman)
+            salesman = content["salesman"]
+            content["salesman"] = Salesman.objects.get(name=salesman)
         except Salesman.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid salesman ID"},
                 status=400,
             )
         try:
-            customer = Customer.objects.get(id=content["customer"])
+            customer = Customer.objects.get(name=content["customer"])
             content["customer"] = customer
+
+
         except Customer.DoesNotExist:
             return JsonResponse({"message": "Invalid customer name"})
 
