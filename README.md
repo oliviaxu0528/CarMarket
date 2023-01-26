@@ -1,5 +1,10 @@
 # CarCar
 
+Team:
+
+* Person 1 - Sean Michael McKee - Service
+* Person 2 - Olivia Xu - Sales
+
 Getting Started
 
 Git:
@@ -62,10 +67,7 @@ If the required fields are met and Docker is running as it should, this POST req
 
 
 
-Team:
 
-* Person 1 - Sean Michael McKee - Service
-* Person 2 - Olivia Xu - Sales
 
 ## Design
 

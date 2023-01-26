@@ -13,7 +13,7 @@ export default function ModelList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                {props.models.map(model => {
+                {props.model.map(model => {
                     return (
                         <tr key={model.id}>
                             <td>{ model.name }</td>
