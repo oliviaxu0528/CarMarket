@@ -44,7 +44,7 @@ function Nav() {
                   aria-selected="true"
                   to="manufacturers/list"
                   exact="true">
-                  Manufacturers
+                  List Manufacturers
                 </NavLink>
                 <NavLink
                   className="dropdown-item"
@@ -118,6 +118,55 @@ function Nav() {
                 </NavLink>
               </div>
             </div>
+            <div className="dropdown">
+              <a
+                href="/"
+                className="nav-link dropdown-toggle"
+                to="#"
+                role="button"
+                id="navbarDropdown"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                Sales
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/customers/new">
+                  New Cusomter
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/sales/">
+                  Sales Record
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/sales/new">
+                  New Sale
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/salesman/new">
+                  New Salesman
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/salesman/list">
+                  Sales by Salesman
+                </NavLink>
+              </div>
+            </div>
+
+
+
+
           </ul>
         </div>
       </div>
@@ -126,3 +175,37 @@ function Nav() {
 }
 
 export default Nav;
+
+
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/customers/new">
+                  New Cusomter
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/sales/">
+                  Sales Record
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/sales/new">
+                  New Sale
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/salesman/new">
+                  New Salesman
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  aria-selected="true"
+                  to="/salesman/sales">
+                  Sales by Salesman
+                </NavLink>
+              </div>

@@ -72,7 +72,7 @@ services:
       context: ./sales/api
       dockerfile: ./Dockerfile.dev
     ports:
-      - "8090:8000"
+      - "8091:8000"
     volumes:
       - ./sales/api:/app
     depends_on:
