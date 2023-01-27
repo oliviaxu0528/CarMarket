@@ -63,6 +63,19 @@ function App() {
       setAppointment(appointments)
     }
   }
+  const getAutomobiles = async () => {
+    const url = "http://localhost:8100/api/automobiles/"
+    const response = await fetch(url);
+
+    if (response.ok) {
+      const data = await response.json();
+
+      console.log(data)
+      const automobiles = data.appointments
+
+      setAutomobiles(automobiles)
+    }
+  }
 
   const getAutomobile = async () => {
     const Url = "http://localhost:8100/api/automobiles/"
@@ -101,6 +114,8 @@ function App() {
       getAppointment();
       getSaleRecord();
       getSalesman();
+      getAutomobiles();
+      // getVehicleModel();
     },[]);
 
   return (
@@ -111,8 +126,7 @@ function App() {
           {/* <Route path="technicians/create" element={<TechnicianForm />} /> */}
           <Route path="appointments/create" element={<AppointmentForm />} />
           <Route path="appointments/list" element={<AppointmentList appointments={appointments} getAppointment={getAppointment} />} />
-          {/* <Route index element={<AppointmentList appointments={appointments} getAppointment={getAppointment} />} /> */}
-          {/* <Route path="appointments/history" element={<ServiceHistory />} /> */}
+          <Route path="appointments/history" element={<ServiceHistory appointments={appointments} getAppointment={getAppointment} />} />
           <Route path="/" element={<MainPage />} />
           <Route path="customers/new" element={<CustomerForm/>} />
           <Route path="sales">

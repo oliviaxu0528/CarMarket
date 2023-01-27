@@ -114,7 +114,7 @@ function Nav() {
                   className="dropdown-item"
                   aria-selected="true"
                   to="/appointments/history">
-                  Services history
+                  Service History
                 </NavLink>
               </div>
             </div>
@@ -175,5 +175,3 @@ function Nav() {
 }
 
 export default Nav;
-
-

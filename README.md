@@ -7,7 +7,7 @@ Team:
 
 Getting Started
 
-Git:
+# Git:
 To begin, go to the project in git at https://gitlab.com/sjp19-public-resources/sjp-2022-april/project-beta/-/tree/main/
 
 Fork it into a new project, ensuring to make it public.
@@ -47,6 +47,8 @@ To access the backend portion of the application, use the following ports:
         For Inventory, http://localhost:8100/api/
         For Services, http://localhost:8080/api/
         For Sales, http://localhost:8091/api/
+
+PUT TABLE HERE
 
 Example:
 To create an automobile, use the POST method at the following URL:
@@ -138,6 +140,7 @@ The following urls, located in urls.py are tied directly to the information impo
             path('appointments/<int:pk>/', api_show_appointment, name='show_appointment'),
         ]
 
+PUT TABLE HERE
 
 
 
@@ -145,3 +148,6 @@ The following urls, located in urls.py are tied directly to the information impo
 
 Explain your models and integration with the inventory
 microservice, here.
+
+
+(MARKDOWN, add table from insomnia, pictures, )
