@@ -52,19 +52,7 @@ function App() {
     if (response.ok) {
       const data = await response.json();
       const appointments = data.appointments
-
       setAppointment(appointments)
-    }
-  }
-  const getAutomobiles = async () => {
-    const url = "http://localhost:8100/api/automobiles/"
-    const response = await fetch(url);
-
-    if (response.ok) {
-      const data = await response.json();
-      const automobiles = data.autos
-
-      setAutomobile(automobiles)
     }
   }
 
@@ -101,7 +89,6 @@ function App() {
       getAppointment();
       getSaleRecord();
       getSalesman();
-      getAutomobiles();
     },[]);
 
   return (
@@ -116,24 +103,24 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="customers/new" element={<CustomerForm/>} />
           <Route path="sales">
-            <Route path="" element={<SaleRecordList salerecord={salerecord}/>} />
-            <Route path="new" element={<SaleRecordForm />} />
+            <Route path="" element={<SaleRecordList salerecord={salerecord} getSaleRecord={getSaleRecord}/>} />
+            <Route path="new" element={<SaleRecordForm getSaleRecord={getSaleRecord}/>} />
           </Route>
           <Route path="salesman">
             <Route path="new" element={<SalesmanForm />} />
             <Route path="list" element={<SaleRecordFiltered salesman={salesman} salerecord={salerecord}/>} />
           </Route>
           <Route path="manufacturers">
-            <Route path="create" element={<CreateManufacturer />} />
-            <Route path="list" element={<ManufacturersList manufacturer={manufacturer}/>} />
+            <Route path="create" element={<CreateManufacturer getManufacturers={getManufacturers}/>} />
+            <Route path="list" element={<ManufacturersList manufacturer={manufacturer} getManufacturers={getManufacturers}/>} />
           </Route>
           <Route path="vehiclemodels">
-            <Route path="create" element={<CreateVehicleModel />} />
-            <Route path="list" element={<ModelList model={model}/>} />
+            <Route path="create" element={<CreateVehicleModel getModel={getModel}/>} />
+            <Route path="list" element={<ModelList model={model} getModel={getModel}/>} />
           </Route>
           <Route path="automobiles">
-            <Route path="create" element={<CreateAutomobile />} />
-            <Route path="list" element={<AutomobileList automobile={automobile}/>} />
+            <Route path="create" element={<CreateAutomobile getAutomobile={getAutomobile}/>} />
+            <Route path="list" element={<AutomobileList automobile={automobile} getAutomobile={getAutomobile}/>} />
           </Route>
         </Routes>
       </div>
@@ -141,4 +128,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

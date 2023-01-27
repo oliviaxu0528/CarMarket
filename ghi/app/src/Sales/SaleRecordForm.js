@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-function SaleRecordForm() {
+function SaleRecordForm(props) {
     const [automobile, setAutomobile] = useState('');
     const [salesman, setSalesman] = useState('');
     const [customer, setCustomer] = useState('');
@@ -55,6 +55,7 @@ function SaleRecordForm() {
           setSalesman('');
           setCustomer('');
           setSalePrice('');
+          props.getSaleRecord();
         }
       }
 

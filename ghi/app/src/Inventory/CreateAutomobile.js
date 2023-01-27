@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function CreateAutomobile() {
+function CreateAutomobile(props) {
     const [color, setColor] = useState('')
     const [year, setYear] = useState('')
     const [vin, setVin] = useState('')
@@ -47,6 +47,7 @@ function CreateAutomobile() {
             setYear('')
             setVin('')
             setModel('')
+            props.getAutomobile();
         }
     }
         const fetchData = async () => {
@@ -55,6 +56,7 @@ function CreateAutomobile() {
         if (response.ok) {
           const data = await response.json();
           setModels(data.models)
+
         }
       }
       useEffect(() => {

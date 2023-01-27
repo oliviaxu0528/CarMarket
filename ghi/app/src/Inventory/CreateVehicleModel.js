@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-function CreateVehicleModel() {
+function CreateVehicleModel(props) {
     const [vehicleName, setVehicleName] = useState('')
     const [pictureUrl, setPicture] = useState('')
     const [manufacturer, setManufacturer] = useState('')
@@ -27,6 +27,7 @@ function CreateVehicleModel() {
             setVehicleName('');
             setPicture('');
             setManufacturer('');
+            props.getModel();
 
         }
       }

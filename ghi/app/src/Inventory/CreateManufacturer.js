@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-function CreateManufacturer() {
+function CreateManufacturer(props) {
 
 const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,6 +20,7 @@ const handleSubmit = async (event) => {
     if (response.ok) {
       const newData = await response.json();
       setName("");
+      props.getManufacturers();
     }
   }
 
