@@ -1,12 +1,12 @@
-### CarCar
+# CarCar
 
-# Summary
+## Summary
 CarCar is a website used to manage the CarCar Dealership. From CarCar's website Employees can register themselves as a new Salesman or new Service Technician. Salesmen have the ability to create new sales, view all previous sales. Technicians have the ability to view all appointments coming up as well as view service history of a specific vehicle by its vin. All CarCar employees have the ability to go and create new vehicles and add them to the dealership inventory. The website includes inventory-api, sales-api, and service-api.
 
-# Home Page
+## Home Page
 ![Home](/images/HomePage.png)
 
-# Team:
+## Team:
 * Person 1 - Sean Michael McKee - Service
 * Person 2 - Olivia Xu - Sales
 
@@ -17,7 +17,7 @@ CarCar is a website used to manage the CarCar Dealership. From CarCar's website 
 3. Add the members of your team to the project under Project Information => Members. Set each other member as a Maintainer role.
 4. Use `git clone` in the terminal to pull the initial project to your machine.
 
-# Docker:
+## Docker:
 1. Use the following commands in the terminal to create and start docker:
        * `docker volume create beta-data`
        * `docker-compose build`
@@ -68,7 +68,7 @@ These models are used by the Service microservice in order to attach a specific 
 
 ```
 {
-	"name": "tesla",
+	"name": "tesla"
 }
 ```
 
