@@ -1,41 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-
-function ListAutomobiles({automobiles, getAutomobile}) {
-    if (automobiles === undefined) {
-        return null;
-    }
-        getAutomobile()
-
+export default function AutomobileList(x){
     return (
-        <table className="table table-striped">
-            <thead>
-            <tr>
-                <th>VIN</th>
-                <th>Color</th>
-                <th>Year</th>
-                <th>Manufacturer</th>
-                <th>Model</th>
-            </tr>
-            </thead>
-            <tbody>
-            {automobiles.map(automobile => {
-                return (
-                <tr key={automobile.id}>
-                    <td>{ automobile.vin}</td>
-                    <td>{ automobile.color}</td>
-                    <td>{ automobile.year}</td>
-                    <td>{ automobile.manufacturer }</td>
-                    <td>{ automobile.model }</td>
-                </tr>
-                );
-            })}
-            </tbody>
-        </table>
+        <div>
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>VIN</th>
+                        <th>Color</th>
+                        <th>Year</th>
+                        <th>Model</th>
+                        <th>Manufacturer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {console.log(x)}
+                {x.automobile.map(automobile => {
+                    return (
+                        <tr key={automobile.vin}>
+                            <td>{ automobile.vin }</td>
+                            <td>{ automobile.color }</td>
+                            <td>{ automobile.year }</td>
+                            <td>{ automobile.model.name }</td>
+                            <td>{ automobile.model.manufacturer.name }</td>
+                        </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
+
     );
-    }
-
-
-
-
-export default ListAutomobiles;
+  }

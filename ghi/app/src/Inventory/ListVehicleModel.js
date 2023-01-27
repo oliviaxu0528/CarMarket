@@ -1,32 +1,31 @@
-// import React from 'react';
-
-// function ListVehicleModel({vehicleModels, getVehicleModels}) {
-//     if (vehicleModels === undefined) {
-//         return null;
-//     }
-//         getVehicleModels()
+import React from 'react'
 
 
-//     return (
-//         <table className="table table-striped">
-//             <thead>
-//             <tr>
-//                 <th>Model</th>
-//                 <th>Manufacturer</th>
-//             </tr>
-//             </thead>
-//             <tbody>
-//             {automobiles.map(automobile => {
-//                 return (
-//                 <tr key={automobile.id}>
-//                     <td>{ automobile.manufacturer }</td>
-//                     <td>{ automobile.model }</td>
-//                 </tr>
-//                 );
-//             })}
-//             </tbody>
-//         </table>
-//     );
-//     }
-
-// export default ListVehicleModel;
+export default function ModelList(props) {
+    return (
+        <div>
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Manufacturer</th>
+                        <th>Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {props.model.map(model => {
+                    return (
+                        <tr key={model.id}>
+                            <td>{ model.name }</td>
+                            <td>{ model.manufacturer.name }</td>
+                            <td>
+                                <img src={ model.picture_url } alt="" width="250px" height="150px"/>
+                            </td>
+                        </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
+    );
+}

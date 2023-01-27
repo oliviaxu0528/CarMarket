@@ -8,7 +8,7 @@ from .models import AutomobileVO,Salesman,Customer,SaleRecord
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin"]
+    properties = ["vin","availability","import_href"]
 
 class SalesmanEncoder(ModelEncoder):
     model = Salesman
@@ -35,7 +35,7 @@ class SaleRecordEncoder(ModelEncoder):
 
 
 @require_http_methods(["GET"])
-def automobile_vo_list(request):
+def automobilevos(request):
     if request.method == "GET":
         automobiles = AutomobileVO.objects.all()
         return JsonResponse(
@@ -44,16 +44,17 @@ def automobile_vo_list(request):
             safe=False,
         )
 
-# @require_http_methods(["PUT"])
-# def update_automobile_vo(request, vin):
-#     if request.method == "PUT":
-#         automobile = AutomobileVO.objects.filter(vin=vin).update(sold=True)
-#         automobile.save()
-#         return JsonResponse(
-#                 automobile,
-#                 encoder=AutomobileVOEncoder,
-#                 safe=False,
-#             )
+
+@require_http_methods(["PUT"])
+def automobilevo(request, vin):
+    if request.method == "PUT":
+        automobile = AutomobileVO.objects.filter(vin=vin).update(availability=False)
+        automobile.save()
+        return JsonResponse(
+                automobile,
+                encoder=AutomobileVOEncoder,
+                safe=False,
+            )
 
 @require_http_methods(["GET", "POST"])
 def salesman_list(request):
@@ -121,7 +122,15 @@ def sales_record_list(request):
         content = json.loads(request.body)
         try:
             automobile = AutomobileVO.objects.get(vin=content["automobile"])
-            content["automobile"] = automobile
+            # content["automobile"] = automobile
+            if automobile.availability is True:
+                content["automobile"] = automobile
+            else:
+                return JsonResponse(
+                    {"message": "Unavailable"},
+                    status=400
+                )
+
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid automobile vin"},
@@ -144,6 +153,8 @@ def sales_record_list(request):
         except Customer.DoesNotExist:
             return JsonResponse({"message": "Invalid customer name"})
 
+        automobile.availability = False
+        automobile.save()
         sales_record = SaleRecord.objects.create(**content)
         return JsonResponse(
             sales_record,

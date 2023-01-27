@@ -1,57 +1,29 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-function AppointmentList({appointments, getAppointment}) {
-    if (appointments === undefined) {
-        return null;
-    }
-    async function deleteAppointment(appointment) {
-        const appointmentUrl = `http://localhost:8080/api/appointments/${appointment.id}/`
-        const fetchConfig = {
-            method: "delete",
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          };
-        await fetch(appointmentUrl, fetchConfig);
-        getAppointment()
-    }
+function ManufacturersList(x) {
+
     return (
-        <table className="table table-striped">
-            <thead>
-            <tr>
-                <th>VIN</th>
-                <th>Customer Name</th>
-                <th>Date</th>
-                <th>Technician</th>
-                <th>Reason For Visit</th>
-                <th>VIP</th>
-                <th>Cancelled</th>
-                <th>Finished</th>
-            </tr>
-            </thead>
-            <tbody>
-            {appointments.map(appointment => {
-                return (
-                <tr key={appointment.id}>
-                    <td>{ appointment.vin}</td>
-                    <td>{ appointment.customer_name}</td>
-                    <td>{ appointment.start}</td>
-                    <td>{ appointment.technician.id }</td>
-                    <td>{ appointment.reason }</td>
-                    <td>{ String(appointment.vip) }</td>
-                    <td>{ String(appointment.cancelled) }</td>
-                    <td>{ String(appointment.finished) }</td>
-                    <td><button type="button" className="btn btn-danger" onClick={() => deleteAppointment(appointment)}>Delete</button>
-                    </td>
-                </tr>
-                );
-            })}
-            </tbody>
-        </table>
+        <div>
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Manufacturers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {console.log(x)}
+                {x.manufacturer.map(man => {
+                    return (
+                        <tr key={man.name}>
+                            <td>{ man.name }</td>
+                        </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
+
     );
-}
+  }
 
-
-
-
-export default AppointmentList;
+export default ManufacturersList;

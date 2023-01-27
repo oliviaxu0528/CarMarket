@@ -14,10 +14,10 @@ import SaleRecordForm from "./sales/SaleRecordForm";
 import CreateAutomobile from './inventory/CreateAutomobile';
 import CreateManufacturer from './inventory/CreateManufacturer';
 import CreateVehicleModel from './inventory/CreateVehicleModel';
-import ListAutomobiles from './inventory/ListAutomobiles';
-// import ListVehicleModel from './Inventory/ListVehicleModel';
-// import ListManufacturer from './Inventory/ListManufacturer';
-// import ManufacturerForm from './Inventory/ManufacturerForm';
+import AutomobileList from './inventory/ListAutomobiles';
+import ManufacturersList from './inventory/ListManufacturer';
+import ModelList from './inventory/ListVehicleModel';
+
 
 
 
@@ -26,7 +26,10 @@ function App() {
   const [salerecord,setSaleRecord] = useState([]);
   const [salesman, setSalesman] = useState([]);
   const [appointments, setAppointment] = useState([]);
-  const [automobiles, setAutomobiles] = useState([]);
+  const [automobile, setAutomobile] = useState([]);
+  const [manufacturer, setManufacturer] = useState([]);
+  const [model, setModel] = useState([]);
+  // const [unsold, setUnsold] = useState([]);
 
   const getSaleRecord = async () => {
     const url = "http://localhost:8091/sales/";
@@ -74,13 +77,38 @@ function App() {
     }
   }
 
+  const getAutomobile = async () => {
+    const Url = "http://localhost:8100/api/automobiles/"
+    const response = await fetch(Url)
+    if (response.ok) {
+      const data = await response.json()
+      setAutomobile(data.autos)
+    }
+  }
+
+  const getManufacturers = async () => {
+    const Url = "http://localhost:8100/api/manufacturers/"
+    const response = await fetch(Url)
+    if (response.ok) {
+      const data = await response.json()
+      setManufacturer(data.manufacturers)
+    }
+  }
+
+  const getModel = async () => {
+    const Url = "http://localhost:8100/api/models/"
+    const response = await fetch(Url)
+    if (response.ok) {
+      const data = await response.json()
+      setModel(data.models)
+    }
+  }
+
+
     useEffect(() => {
-      // fetchManufacturers();
-      // fetchModels();
-      // fetchCustomer();
-      // fetchSales();
-      // fetchAutomobile();
-      // fetchSalesPerson();
+      getManufacturers();
+      getModel();
+      getAutomobile();
       // fetchTechnician();
       // fetchAppointments();
       getAppointment();
@@ -95,34 +123,31 @@ function App() {
       <Nav />
       <div className="container">
         <Routes>
-          <Route path="automobiles/list" element={<ListAutomobiles automobiles={automobiles} getAutomobiles={getAutomobiles} />} />
-          {/* <Route path="manufacturers/list" element={<ListManufacturer/>} /> */}
-          {/* <Route path="" element={<ListVehicleModel />} /> */}
-          <Route path="technicians/create" element={<TechnicianForm />} />
+          {/* <Route path="technicians/create" element={<TechnicianForm />} /> */}
           <Route path="appointments/create" element={<AppointmentForm />} />
           <Route path="appointments/list" element={<AppointmentList appointments={appointments} getAppointment={getAppointment} />} />
           <Route path="appointments/history" element={<ServiceHistory appointments={appointments} getAppointment={getAppointment} />} />
           <Route path="/" element={<MainPage />} />
+          <Route path="customers/new" element={<CustomerForm/>} />
           <Route path="sales">
             <Route path="" element={<SaleRecordList salerecord={salerecord}/>} />
             <Route path="new" element={<SaleRecordForm />} />
           </Route>
-          <Route path="customers/new" element={<CustomerForm/>} />
           <Route path="salesman">
             <Route path="new" element={<SalesmanForm />} />
             <Route path="list" element={<SaleRecordFiltered salesman={salesman} salerecord={salerecord}/>} />
           </Route>
           <Route path="manufacturers">
             <Route path="create" element={<CreateManufacturer />} />
-            {/* <Route path="list" element={<SaleRecordFiltered salesman={salesman} salerecord={salerecord}/>} /> */}
+            <Route path="list" element={<ManufacturersList manufacturer={manufacturer}/>} />
           </Route>
           <Route path="vehiclemodels">
             <Route path="create" element={<CreateVehicleModel />} />
-            {/* <Route path="list" element={<SaleRecordFiltered salesman={salesman} salerecord={salerecord}/>} /> */}
+            <Route path="list" element={<ModelList model={model}/>} />
           </Route>
           <Route path="automobiles">
             <Route path="create" element={<CreateAutomobile />} />
-            {/* <Route path="list" element={<SaleRecordFiltered salesman={salesman} salerecord={salerecord}/>} /> */}
+            <Route path="list" element={<AutomobileList automobile={automobile}/>} />
           </Route>
         </Routes>
       </div>
