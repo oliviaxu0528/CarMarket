@@ -60,25 +60,26 @@ These models are used by the Service microservice in order to attach a specific 
 
 ## Example POST request:
 **POST New Manufacturer**
-```{
+
+``{
 	"name": "tesla",
-}```
+}``
 
 **POST New Vehicle Model**
-```{
+``{
         "name": "tom",
         "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
         "manufacturer_id": 1
 }
-```
+``
 
 **POST New Sale**
-```{
+``{
         "color": "blue",
         "year": 1993,
         "vin": "11111111",
         "model_id":1
-}```
+}``
 
 
 
@@ -167,24 +168,24 @@ Sales microservice has four models: **AutomobileVO, Salesman, Customer, and Sale
 
 ## Example POST request:
 **POST New Customer**
-```{
+``{
 	"name": "wendy",
         "address": "130 Ave, millbrae, ca,94012",
         "phone_number": 12013
-}```
+}``
 
 
 **POST New Customer**
-```{
+``{
 	"name":"alex",
 	"employee_number": 2
 }
-```
+``
 
 **POST New Sale**
-```{
+``{
 	"automobile":"11111111",
 	"salesman":"alex",
 	"customer":"wendy",
 	"sale_price": 45000
-}```
+}``
