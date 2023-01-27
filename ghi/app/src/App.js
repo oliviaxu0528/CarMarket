@@ -18,18 +18,13 @@ import AutomobileList from './inventory/ListAutomobiles';
 import ManufacturersList from './inventory/ListManufacturer';
 import ModelList from './inventory/ListVehicleModel';
 
-
-
-
 function App() {
-
   const [salerecord,setSaleRecord] = useState([]);
   const [salesman, setSalesman] = useState([]);
   const [appointments, setAppointment] = useState([]);
   const [automobile, setAutomobile] = useState([]);
   const [manufacturer, setManufacturer] = useState([]);
   const [model, setModel] = useState([]);
-  // const [unsold, setUnsold] = useState([]);
 
   const getSaleRecord = async () => {
     const url = "http://localhost:8091/sales/";
@@ -73,7 +68,7 @@ function App() {
       console.log(data)
       const automobiles = data.appointments
 
-      setAutomobiles(automobiles)
+      setAutomobile(automobiles)
     }
   }
 
@@ -94,7 +89,6 @@ function App() {
       setManufacturer(data.manufacturers)
     }
   }
-
   const getModel = async () => {
     const Url = "http://localhost:8100/api/models/"
     const response = await fetch(Url)
@@ -104,18 +98,14 @@ function App() {
     }
   }
 
-
     useEffect(() => {
       getManufacturers();
       getModel();
       getAutomobile();
-      // fetchTechnician();
-      // fetchAppointments();
       getAppointment();
       getSaleRecord();
       getSalesman();
       getAutomobiles();
-      // getVehicleModel();
     },[]);
 
   return (
@@ -123,7 +113,7 @@ function App() {
       <Nav />
       <div className="container">
         <Routes>
-          {/* <Route path="technicians/create" element={<TechnicianForm />} /> */}
+          <Route path="technicians/create" element={<TechnicianForm />} />
           <Route path="appointments/create" element={<AppointmentForm />} />
           <Route path="appointments/list" element={<AppointmentList appointments={appointments} getAppointment={getAppointment} />} />
           <Route path="appointments/history" element={<ServiceHistory appointments={appointments} getAppointment={getAppointment} />} />
