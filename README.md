@@ -19,26 +19,13 @@ CarCar is a website used to manage the CarCar Dealership. From CarCar's website 
 
 ## Docker:
 1. Use the following commands in the terminal to create and start docker:
-       * `docker volume create beta-data`
-       * `docker-compose build`
-       * `docker-compose up`
-2. open Docker desktop and ensure all the containers are running as expected.
+       1. `docker volume create beta-data`
+       2.  `docker-compose build`
+       3.  `docker-compose up`
+2. open Docker desktop and ensure all the containers are **running** as expected(example as below).
+![Docker](/images/Docker.png)
 
-*Every container has its own terminal, as well as a list of all actions relating to it located in the logs. If access to this is required, simply click on the name for each container and follow the tabs at the top.
-
-**Example:**
-* To create an automobile, use the POST method at the following URL:
-    http://localhost:8100/api/automobiles/
-*Inside {}, fill out the required fields as defined in models.py.
-```
-{
-  "color": "red",               # color of automobile
-  "year": 2012,                 #year of automobile
-  "vin": "1C3CC5FB2AN120174",   #VIN of automobile
-  "model_id": 1                 #Model ID of automobile
-}
-```
-If the required fields are met and Docker is running as it should, this POST request will return a 200 OK status.
+* Every container has its own terminal, as well as a list of all actions relating to it located in the logs. If access to this is required, simply click on the GreenBOX with name for each container.
 
 ## Design
 ![diagram](/images/Diagram.png)
