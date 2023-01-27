@@ -6,7 +6,7 @@ CarCar is a website used to manage the CarCar Dealership. From CarCar's website 
 # Home Page
 ![Home](/images/HomePage.png)
 
-Team:
+# Team:
 
 * Person 1 - Sean Michael McKee - Service
 * Person 2 - Olivia Xu - Sales

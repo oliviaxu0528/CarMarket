@@ -6,17 +6,17 @@ import TechnicianForm from "./service/TechnicianForm";
 import AppointmentForm from "./service/AppointmentForm";
 import AppointmentList from "./service/AppointmentList";
 import ServiceHistory from "./service/ServiceHistory";
-import CustomerForm from "./sales/CustomerForm";
-import SalesmanForm from "./sales/SalesmanForm";
-import SaleRecordFiltered from "./sales/SaleRecordFiltered";
-import SaleRecordList from "./sales/SaleRecordList";
-import SaleRecordForm from "./sales/SaleRecordForm";
-import CreateAutomobile from './inventory/CreateAutomobile';
-import CreateManufacturer from './inventory/CreateManufacturer';
-import CreateVehicleModel from './inventory/CreateVehicleModel';
-import AutomobileList from './inventory/ListAutomobiles';
-import ManufacturersList from './inventory/ListManufacturer';
-import ModelList from './inventory/ListVehicleModel';
+import CustomerForm from "./Sales/CustomerForm";
+import SalesmanForm from "./Sales/SalesmanForm";
+import SaleRecordFiltered from "./Sales/SaleRecordFiltered";
+import SaleRecordList from "./Sales/SaleRecordList";
+import SaleRecordForm from "./Sales/SaleRecordForm";
+import CreateAutomobile from './Inventory/CreateAutomobile';
+import CreateManufacturer from './Inventory/CreateManufacturer';
+import CreateVehicleModel from './Inventory/CreateVehicleModel';
+import AutomobileList from './Inventory/ListAutomobiles';
+import ManufacturersList from './Inventory/ListManufacturer';
+import ModelList from './Inventory/ListVehicleModel';
 
 function App() {
   const [salerecord,setSaleRecord] = useState([]);
