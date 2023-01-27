@@ -89,19 +89,19 @@ There are three models in the Service microservice, located in models.py. After 
         python manage.py migrate
 * AutomobileVO - with vin, year, and color as its attributes.
 * Technician - with technician_name and employee_number as its attributes
-Appointment - with vin, customer_name, date (of appointment), time (of appointment), technician, reason (for visit), vip, cancelled, and finished as its attributes.
-*Views:
+* Appointment - with vin, customer_name, date (of appointment), time (of appointment), technician, reason (for visit), vip, cancelled, and finished as its attributes.
+* Views:
 There are three encoders and four additional functions in the Service microservice, located in views.py. They are then used within the urls.py.
-AutomobileVOEncoder - with the model AutomobileVo and the properties:
+* AutomobileVOEncoder - with the model AutomobileVo and the properties:
         "id",
         "vin",
         "year",
         "color",
-TechnicianEncoder - with the model Technician and the properties:
+* TechnicianEncoder - with the model Technician and the properties:
         "id",
         "employee_number",
         "technician_name"
-AppointmentEncoder - with the model Appointment and the properties:
+* AppointmentEncoder - with the model Appointment and the properties:
         "id",
         "vin",
         "customer_name",
@@ -112,12 +112,12 @@ AppointmentEncoder - with the model Appointment and the properties:
         "vip",
         "cancelled",
         "finished"
-The following functions are also in the views.py and are directly referenced in the urls.py:
+* The following functions are also in the views.py and are directly referenced in the urls.py:
         api_list_technicians - lists all technicians
         api_show_technician - shows a specific technician
         api_list_appointments - lists all upcoming appointments
         api_show_appointment - shows a specific appointment
-URLs:
+* URLs:
 The following urls, located in urls.py are tied directly to the information imported from views.py:
         urlpatterns = [
             path('technicians/', api_list_technicians, name='list_technicians',),
