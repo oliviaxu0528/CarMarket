@@ -19,28 +19,13 @@ Team:
 2. Fork it into a new project, ensuring to make it public.
 3. Add the members of your team to the project under Project Information => Members. Set each other member as a Maintainer role.
 4. Use `git clone` in the terminal to pull the initial project to your machine.
-5. Use `git checkout -b 'branch-name'` to create a new branch to work in.
-6. Use `git checkout 'branch-name'` to move to that branch. Ensure it works with git branch.
-7. When pushing a worked project to gitlab, use the following commands and ensure any teammates are in redundant communication during this time in order to avoid mishaps:
-        (branch-name) $ `git checkout main`  # switch to main branch
-        (main) $ `git pull`                  # get latest from remote
-        (main) $ `git checkout branch-name`  # switch to dev branch
-        (branch-name) $ `git merge main`     # merge latest into dev branch
-        ... handle any merging here
-        ... test out your code
-        (branch-name) $ `git checkout main`  # switch to main branch
-        (main) $ `git pull `                 # test for changes on remote
-        ... if no changes proceed,
-        ... if changes go back to line 3
-        (main) $ `git merge branch-name`     # merge dev branch into main
-        (main) $ `git push`                  # push changes to the remote
-        (main) $ `git checkout branch-name`  # change back to dev branch
 
 # Docker:
 1. Use the following commands in the terminal to create and start docker:
-        `docker volume create beta-data`
-        `docker-compose build`
-        `docker-compose up`
+       * `docker volume create beta-data`
+       * `docker-compose build`
+       * `docker-compose up`
+
 2. open Docker desktop and ensure all the containers are running as expected.
 Every container has its own terminal, as well as a list of all actions relating to it located in the logs. If access to this is required, simply click on the name for each container and follow the tabs at the top.
 

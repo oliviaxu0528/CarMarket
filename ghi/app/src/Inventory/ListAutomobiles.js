@@ -14,10 +14,9 @@ export default function AutomobileList(x){
                     </tr>
                 </thead>
                 <tbody>
-                {console.log(x)}
-                {x.automobile.map(automobile => {
+                {x.automobile.map((automobile, index) => {
                     return (
-                        <tr key={automobile.vin}>
+                        <tr key={index}>
                             <td>{ automobile.vin }</td>
                             <td>{ automobile.color }</td>
                             <td>{ automobile.year }</td>

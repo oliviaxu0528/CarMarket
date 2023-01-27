@@ -66,7 +66,7 @@ function App() {
       const data = await response.json();
 
       console.log(data)
-      const automobiles = data.appointments
+      const automobiles = data.autos
 
       setAutomobile(automobiles)
     }
