@@ -107,10 +107,10 @@ function SaleRecordForm() {
                             <select value={automobile} onChange={handlAutomobileChange} required id="autmobile" name="automobile" className="form-select">
                                 <option value="">Choose an Automobile</option>
                                 {console.log(automobiles)}
-                                {automobiles.map(automobile => {
+                                {automobiles.map((automobile,index) => {
                                     if (automobile.availability === true) {
                                         return (
-                                            <option key={automobile.vin} value={automobile.vin}>
+                                            <option key={index} value={automobile.vin}>
                                                 {automobile.vin}
                                             </option>
                                         )
@@ -121,9 +121,9 @@ function SaleRecordForm() {
                         <div className="mb-3">
                             <select value={salesman} onChange={handleSalesmanChange} required id="salesman" name="salesman" className="form-select">
                                 <option value="">Choose a Sales Person</option>
-                                {salesmans.map((salesman) => {
+                                {salesmans.map((salesman,index) => {
                                         return (
-                                            <option key={salesman.href} value={salesman.name}>
+                                            <option key={index} value={salesman.name}>
                                                 {salesman.name}
                                             </option>
                                         );
@@ -133,9 +133,9 @@ function SaleRecordForm() {
                         <div className="mb-3">
                             <select value={customer} onChange={handleCustomerChange} required id="customer" name="customer" className="form-select">
                                 <option value="">Choose a Customer</option>
-                                {customers.map((customer) => {
+                                {customers.map((customer,index) => {
                                         return (
-                                            <option key={customer.href} value={customer.name}>
+                                            <option key={index} value={customer.name}>
                                                 {customer.name}
                                             </option>
                                         );
