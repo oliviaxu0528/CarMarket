@@ -14,7 +14,8 @@ import SaleRecordForm from "./sales/SaleRecordForm";
 import CreateAutomobile from './inventory/CreateAutomobile';
 import CreateManufacturer from './inventory/CreateManufacturer';
 import CreateVehicleModel from './inventory/CreateVehicleModel';
-// import ListAutomobiles from './Inventory/ListAutomobiles';
+import ListAutomobiles from './inventory/ListAutomobiles';
+// import ListVehicleModel from './Inventory/ListVehicleModel';
 // import ListManufacturer from './Inventory/ListManufacturer';
 // import ManufacturerForm from './Inventory/ManufacturerForm';
 
@@ -25,6 +26,7 @@ function App() {
   const [salerecord,setSaleRecord] = useState([]);
   const [salesman, setSalesman] = useState([]);
   const [appointments, setAppointment] = useState([]);
+  const [automobiles, setAutomobiles] = useState([]);
 
   const getSaleRecord = async () => {
     const url = "http://localhost:8091/sales/";
@@ -58,6 +60,19 @@ function App() {
       setAppointment(appointments)
     }
   }
+  const getAutomobiles = async () => {
+    const url = "http://localhost:8100/api/automobiles/"
+    const response = await fetch(url);
+
+    if (response.ok) {
+      const data = await response.json();
+
+      console.log(data)
+      const automobiles = data.appointments
+
+      setAutomobiles(automobiles)
+    }
+  }
 
     useEffect(() => {
       // fetchManufacturers();
@@ -71,6 +86,8 @@ function App() {
       getAppointment();
       getSaleRecord();
       getSalesman();
+      getAutomobiles();
+      // getVehicleModel();
     },[]);
 
   return (
@@ -78,13 +95,13 @@ function App() {
       <Nav />
       <div className="container">
         <Routes>
-          {/* <Route path="automobiles/list" element={<ListAutomobiles />} />
-          <Route path="manufacturers/list" element={<ListManufacturer/>} />
-          {/* <Route path="technicians/create" element={<TechnicianForm />} /> */}
+          <Route path="automobiles/list" element={<ListAutomobiles automobiles={automobiles} getAutomobiles={getAutomobiles} />} />
+          {/* <Route path="manufacturers/list" element={<ListManufacturer/>} /> */}
+          {/* <Route path="" element={<ListVehicleModel />} /> */}
+          <Route path="technicians/create" element={<TechnicianForm />} />
           <Route path="appointments/create" element={<AppointmentForm />} />
           <Route path="appointments/list" element={<AppointmentList appointments={appointments} getAppointment={getAppointment} />} />
-          {/* <Route index element={<AppointmentList appointments={appointments} getAppointment={getAppointment} />} /> */}
-          {/* <Route path="appointments/history" element={<ServiceHistory />} /> */}
+          <Route path="appointments/history" element={<ServiceHistory appointments={appointments} getAppointment={getAppointment} />} />
           <Route path="/" element={<MainPage />} />
           <Route path="sales">
             <Route path="" element={<SaleRecordList salerecord={salerecord}/>} />

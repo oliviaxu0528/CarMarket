@@ -19,7 +19,6 @@ class AutomobileVOEncoder(ModelEncoder):
 class TechnicianEncoder(ModelEncoder):
     model = Technician
     properties = [
-        "id",
         "employee_number",
         "technician_name"
     ]
@@ -31,8 +30,7 @@ class AppointmentEncoder(ModelEncoder):
         "id",
         "vin",
         "customer_name",
-        "date",
-        "time",
+        "start",
         "technician",
         "reason",
         "vip",
@@ -46,15 +44,14 @@ class AppointmentEncoder(ModelEncoder):
     }
 
     def get_extra_data(self, o):
-        if isinstance(o.date, str) and isinstance(o.time, str):
+        if isinstance(o.start, str):
             return {
-                "date": o.date,
-                "time": o.time,
+                "start": o.start,
+
             }
         else:
             return {
-                "date": o.date.isoformat(),
-                "time": o.time.isoformat(),
+                "start": o.start.isoformat(),
             }
 
 
@@ -196,7 +193,7 @@ def api_show_appointment(request, pk):
         try:
             content = json.loads(request.body)
             model = Appointment.objects.get(id=pk)
-            props = ["date", "time", "technician_id", "reason"]
+            props = ["start", "technician_id", "reason"]
             for prop in props:
                 if prop in content:
                     setattr(model, prop, content[prop])
@@ -210,3 +207,11 @@ def api_show_appointment(request, pk):
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
+
+@require_http_methods(["GET"])
+def api_service_history(request, vin):
+    appointments = Appointment.objects.filter(vin=vin)
+    return JsonResponse(
+        {"appointments": appointments},
+        encoder = AppointmentEncoder
+    )
