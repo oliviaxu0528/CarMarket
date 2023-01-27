@@ -11,7 +11,6 @@ function ManufacturersList(x) {
                     </tr>
                 </thead>
                 <tbody>
-                {console.log(x)}
                 {x.manufacturer.map(man => {
                     return (
                         <tr key={man.name}>

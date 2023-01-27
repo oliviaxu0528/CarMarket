@@ -4,12 +4,10 @@ function CustomerForm() {
 
 const handleSubmit = async (event) => {
     event.preventDefault();
-
     const data = {};
     data.name = name;
     data.address= address;
     data.phone_number = phone_number;
-    console.log(data);
 
     const customerUrl = "http://localhost:8091/customers/";
     const fetchConfig = {
@@ -23,7 +21,6 @@ const handleSubmit = async (event) => {
     const response = await fetch(customerUrl, fetchConfig);
     if (response.ok) {
       const newData = await response.json();
-      console.log(newData);
       setName("");
       setAddress("");
       setPhone("");

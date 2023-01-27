@@ -43,7 +43,6 @@ function CreateAutomobile() {
         const response = await fetch(automobileUrl, fetchConfig)
         if (response.ok) {
             const newAutomobile = await response.json()
-            console.log(newAutomobile)
             setColor('')
             setYear('')
             setVin('')
@@ -52,9 +51,7 @@ function CreateAutomobile() {
     }
         const fetchData = async () => {
         const url = 'http://localhost:8100/api/models/';
-
         const response = await fetch(url);
-
         if (response.ok) {
           const data = await response.json();
           setModels(data.models)

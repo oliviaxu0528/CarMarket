@@ -6,7 +6,6 @@ const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {};
     data.name = name;
-    console.log(data);
 
     const url = "http://localhost:8100/api/manufacturers/";
     const fetchConfig = {
@@ -20,7 +19,6 @@ const handleSubmit = async (event) => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const newData = await response.json();
-      console.log(newData);
       setName("");
     }
   }

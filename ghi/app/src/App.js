@@ -51,8 +51,6 @@ function App() {
 
     if (response.ok) {
       const data = await response.json();
-
-      console.log(data)
       const appointments = data.appointments
 
       setAppointment(appointments)
@@ -64,8 +62,6 @@ function App() {
 
     if (response.ok) {
       const data = await response.json();
-
-      console.log(data)
       const automobiles = data.autos
 
       setAutomobile(automobiles)

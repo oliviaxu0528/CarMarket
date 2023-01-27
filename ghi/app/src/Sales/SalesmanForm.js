@@ -8,7 +8,6 @@ const handleSubmit = async (event) => {
     const data = {};
     data.name = name;
     data.employee_number = employee_number;
-    console.log(data);
 
     const Url = "http://localhost:8091/salesman/";
     const fetchConfig = {
@@ -22,7 +21,6 @@ const handleSubmit = async (event) => {
     const response = await fetch(Url, fetchConfig);
     if (response.ok) {
       const newData = await response.json();
-      console.log(newData);
       setName("");
       setEmployeeNumber("");
     }
@@ -44,7 +42,7 @@ const handleSubmit = async (event) => {
     <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-            <h1>Add a Employee!</h1>
+            <h1>Add a Salesman!</h1>
             <form onSubmit={handleSubmit} id="create-employee-form">
             <div className="form-floating mb-3">
                 <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>

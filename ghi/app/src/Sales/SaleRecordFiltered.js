@@ -32,7 +32,6 @@ function SaleRecordFiltered(salerecord) {
                 </tr>
             </thead>
             <tbody>
-                {console.log(salerecord)}
                 {salerecord.salerecord.filter(salerecord => salerecord.salesman.name === name)
                 .map(sale => {
                 return (

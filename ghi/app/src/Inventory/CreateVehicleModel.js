@@ -24,7 +24,6 @@ function CreateVehicleModel() {
         const response = await fetch(VehicleUrl, fetchConfig);
         if (response.ok) {
             const newVehicle = await response.json();
-            console.log(newVehicle);
             setVehicleName('');
             setPicture('');
             setManufacturer('');

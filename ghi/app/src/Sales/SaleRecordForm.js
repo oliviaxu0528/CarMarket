@@ -38,7 +38,6 @@ function SaleRecordForm() {
             data.salesman = salesman;
             data.customer = customer;
             data.sale_price = sale_price;
-        console.log(data);
 
         const Url = 'http://localhost:8091/sales/';
         const fetchConfig = {
@@ -52,7 +51,6 @@ function SaleRecordForm() {
         const response = await fetch(Url, fetchConfig);
         if (response.ok) {
           const newsale = await response.json();
-          console.log(newsale);
           setAutomobile('');
           setSalesman('');
           setCustomer('');
@@ -87,15 +85,11 @@ function SaleRecordForm() {
           setCustomers(data.customers);
         }
       }
-
-
       useEffect(() => {
         fetchAutomobile();
         fetchSalesman();
         fetchCustomer();
-
     }, []);
-
 
     return (
         <div className="row">
@@ -106,7 +100,6 @@ function SaleRecordForm() {
                         <div className="mb-3">
                             <select value={automobile} onChange={handlAutomobileChange} required id="autmobile" name="automobile" className="form-select">
                                 <option value="">Choose an Automobile</option>
-                                {console.log(automobiles)}
                                 {automobiles.map((automobile,index) => {
                                     if (automobile.availability === true) {
                                         return (
