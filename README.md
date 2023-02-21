@@ -6,10 +6,6 @@ CarCar is a website used to manage the CarCar Dealership. From CarCar's website 
 ## Home Page
 ![Home](/images/HomePage.png)
 
-## Team:
-* Person 1 - Sean Michael McKee - Service
-* Person 2 - Olivia Xu - Sales
-
 ## Getting Started
 # Git:
 1. go to the project in git at [here](https://gitlab.com/sjp19-public-resources/sjp-2022-april/project-beta/-/tree/main/)
